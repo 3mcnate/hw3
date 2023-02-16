@@ -50,6 +50,18 @@ struct Node
 void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot);
 
 /**
+ * Helper function to llpivot. Moves node to the front of list. 
+ * DOES NOT change preceding node to null from original list.
+ * 
+ * @param[inout] list
+ *   Reference to list that node will be pushed to the front of
+ * @param[in] node
+ *   Node moved to front of the specified list
+ * 
+*/
+void push_front(Node*& list, Node* node);
+
+/**
  * Given a linked list pointed to by head, removes (filters out) nodes
  * whose value does not meet the criteria given by the predicate
  * function object, pred (i.e. pred should be a function object that implements
