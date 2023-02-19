@@ -103,11 +103,7 @@ Node* llfilter(Node* head, Comp pred)
     // recursive case
     else {
         // if criteria matches, delete head
-
-        //std::cout << "head->val = " << head->val << std::endl;
-
         if (pred(head->val)) {
-            //std::cout << "Deleting node with val " << head->val << std::endl;
             Node* next = head->next;
             delete head;
             head = llfilter(next, pred);
