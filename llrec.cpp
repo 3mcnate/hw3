@@ -17,7 +17,6 @@ void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot)
         
         if (head->val <= pivot) push_front(smaller, head);
         else push_front(larger, head);
-
         head = nullptr;
     }
 

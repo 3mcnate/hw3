@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <functional>
+#include <iomanip>
 #include "llrec.h"
 using namespace std;
 
@@ -67,9 +68,33 @@ void dealloc(Node* head)
 //   function object struct declarations
 // -----------------------------------------------
 
+struct isEven {
+    bool operator()(int x) {
+        return x % 2 == 0;
+    }
+};
 
+struct isOdd {
+    bool operator()(int x) {
+        return x % 2 != 0;
+    }
+};
 
+struct is8 {
+    bool operator()(int x){
+        return x == 8;
+    }
+};
 
+struct IsLessEquals {
+    IsLessEquals(int num) : num_(num) {}
+
+    bool operator()(int x) {
+        return x <= num_;
+    }
+
+    int num_;
+};
 
 int main(int argc, char* argv[])
 {
@@ -86,22 +111,14 @@ int main(int argc, char* argv[])
     print(head);
 
     // Test out your linked list code
-    Node *smaller, *larger;
-    llpivot(head, smaller, larger, 10);
+    IsLessEquals comp1(5);
 
-    cout << "Head: "; 
+    head = llfilter(head, comp1);
+
+    cout << "Filtered list: "; 
     print(head);
-    
-    cout << "Smaller: ";
-    print(smaller);
-
-    cout << "Larger: ";
-    print (larger);
 
     dealloc(head);
-    dealloc(smaller);
-    dealloc(larger);
-
     return 0;
 
 }

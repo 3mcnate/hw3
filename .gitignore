@@ -1,4 +1,5 @@
 *.o
 llrec-test
 hw3_tests/
-logicsim/
+.vscode/
+test2.in

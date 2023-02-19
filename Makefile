@@ -9,8 +9,6 @@ all: llrec-test
 #-----------------------------------------------------
 llrec-test: llrec-test.cpp llrec.o
 	$(CXX) $(CXXFLAGS) $^ -o $@
-	./$@ llrec-test1.in
-	$(VALGRIND) ./$@ llrec-test1.in
 
 llrec.o: llrec.cpp llrec.h
 	$(CXX) $(CXXFLAGS) $< -c -o $@

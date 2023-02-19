@@ -4,6 +4,8 @@
 #define NULL 0
 #endif
 
+#include <iostream>
+
 /**
  * Node struct for both problems
  */
@@ -92,11 +94,30 @@ Node* llfilter(Node* head, Comp pred);
 template <typename Comp>
 Node* llfilter(Node* head, Comp pred)
 {
-    //*********************************************
-    // Provide your implementation below
-    //*********************************************
+    // base case
+    if (head == nullptr)
+    {
+        return nullptr;
+    }
 
+    // recursive case
+    else {
+        // if criteria matches, delete head
 
+        //std::cout << "head->val = " << head->val << std::endl;
+
+        if (pred(head->val)) {
+            //std::cout << "Deleting node with val " << head->val << std::endl;
+            Node* next = head->next;
+            delete head;
+            head = llfilter(next, pred);
+        }
+        else {
+            head->next = llfilter(head->next, pred);
+        }
+        
+        return head;
+    }
 }
 
 #endif
