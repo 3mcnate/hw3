@@ -13,6 +13,9 @@ llrec-test: llrec-test.cpp llrec.o
 llrec.o: llrec.cpp llrec.h
 	$(CXX) $(CXXFLAGS) $< -c -o $@
 
+heap-test: heap-test.cpp heap.h
+	$(CXX) $(CXXFLAGS) $< -o $@
+
 clean:
 	rm -f *.o rh llrec-test 
 
