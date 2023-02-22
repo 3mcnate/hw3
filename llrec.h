@@ -4,7 +4,8 @@
 #define NULL 0
 #endif
 
-#include <iostream>
+// causes loop check to fail
+//#include <iostream>
 
 /**
  * Node struct for both problems
